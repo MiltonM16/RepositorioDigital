@@ -33,12 +33,14 @@
             mainDash = new Button();
             userInfoPanel = new Panel();
             mainPanel = new Panel();
+            button2 = new Button();
             sidePanel.SuspendLayout();
             SuspendLayout();
             // 
             // sidePanel
             // 
             sidePanel.BackColor = Color.FromArgb(64, 64, 64);
+            sidePanel.Controls.Add(button2);
             sidePanel.Controls.Add(button1);
             sidePanel.Controls.Add(mainDash);
             sidePanel.Controls.Add(userInfoPanel);
@@ -88,6 +90,17 @@
             mainPanel.Size = new Size(881, 626);
             mainPanel.TabIndex = 1;
             // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Top;
+            button2.Location = new Point(0, 173);
+            button2.Name = "button2";
+            button2.Size = new Size(250, 29);
+            button2.TabIndex = 3;
+            button2.Text = "Materiais";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // dash
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -109,5 +122,6 @@
         private Panel userInfoPanel;
         private Button mainDash;
         private Button button1;
+        private Button button2;
     }
 }

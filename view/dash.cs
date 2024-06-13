@@ -16,5 +16,37 @@ namespace RepositorioDigital.view
         {
             InitializeComponent();
         }
+
+        public void AbrirTela(Form tela)
+        {
+            // Remove qualquer controle atual dentro do painel
+            mainPanel.Controls.Clear();
+
+            // Define a tela como filho do painel
+            tela.TopLevel = false;
+            tela.AutoScroll = true;
+            mainPanel.Controls.Add(tela);
+            tela.Dock = DockStyle.Fill;
+            tela.Show();
+        }
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dash_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mainDash_Click(object sender, EventArgs e)
+        {
+            AbrirTela(new Dashboard());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AbrirTela(new Materiais());
+        }
     }
 }

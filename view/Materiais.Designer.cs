@@ -48,6 +48,8 @@
             label8 = new Label();
             pictureBox1 = new PictureBox();
             lblCaminho = new Label();
+            button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -179,7 +181,7 @@
             btnPublicar.Name = "btnPublicar";
             btnPublicar.Size = new Size(94, 29);
             btnPublicar.TabIndex = 18;
-            btnPublicar.Text = "Publicar";
+            btnPublicar.Text = "Salvar";
             btnPublicar.UseVisualStyleBackColor = true;
             btnPublicar.Click += btnPublicar_Click;
             // 
@@ -212,11 +214,33 @@
             lblCaminho.TabIndex = 23;
             lblCaminho.Text = "Nome do Arquivo";
             // 
+            // button1
+            // 
+            button1.Location = new Point(571, 455);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 24;
+            button1.Text = "Cancelar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(744, 12);
+            button2.Name = "button2";
+            button2.Size = new Size(44, 29);
+            button2.TabIndex = 25;
+            button2.Text = "X";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
+            // 
             // Materiais
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 563);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(lblCaminho);
             Controls.Add(pictureBox1);
             Controls.Add(label8);
@@ -265,5 +289,7 @@
         private Label label8;
         private PictureBox pictureBox1;
         private Label lblCaminho;
+        private Button button1;
+        private Button button2;
     }
 }

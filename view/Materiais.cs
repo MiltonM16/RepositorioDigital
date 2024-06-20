@@ -86,5 +86,15 @@ namespace RepositorioDigital.view
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace RepositorioDigital.view
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbrirTela(new Materiais());
+            AbrirTela(new GestaoMaterial());
             //Materiais popup = new Materiais();
             //popup.ShowDialog();
         }

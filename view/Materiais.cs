@@ -1,4 +1,6 @@
-﻿using RepositorioDigital.controller;
+﻿using GemBox.Document;
+using PdfiumViewer;
+using RepositorioDigital.controller;
 using RepositorioDigital.model;
 using System;
 using System.Collections.Generic;
@@ -8,13 +10,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
+
 
 namespace RepositorioDigital.view
 {
     public partial class Materiais : Form
     {
         string filePath;
+        private PdfViewer pdfViewer;
         public Materiais()
         {
             InitializeComponent();
@@ -72,7 +77,13 @@ namespace RepositorioDigital.view
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 filePath = openFileDialog.FileName;
+                lblCaminho.Text = Path.GetFileName(filePath);
             }
+
+        }
+
+        private void txtCurso_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

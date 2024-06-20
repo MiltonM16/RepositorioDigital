@@ -45,9 +45,9 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             txtResumo = new RichTextBox();
             btnPublicar = new Button();
-            btnEditar = new Button();
             label8 = new Label();
             pictureBox1 = new PictureBox();
+            lblCaminho = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -169,13 +169,13 @@
             // 
             txtResumo.Location = new Point(12, 301);
             txtResumo.Name = "txtResumo";
-            txtResumo.Size = new Size(271, 206);
+            txtResumo.Size = new Size(366, 206);
             txtResumo.TabIndex = 17;
             txtResumo.Text = "";
             // 
             // btnPublicar
             // 
-            btnPublicar.Location = new Point(12, 522);
+            btnPublicar.Location = new Point(447, 455);
             btnPublicar.Name = "btnPublicar";
             btnPublicar.Size = new Size(94, 29);
             btnPublicar.TabIndex = 18;
@@ -183,20 +183,10 @@
             btnPublicar.UseVisualStyleBackColor = true;
             btnPublicar.Click += btnPublicar_Click;
             // 
-            // btnEditar
-            // 
-            btnEditar.Location = new Point(129, 522);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(94, 29);
-            btnEditar.TabIndex = 19;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
-            btnEditar.Click += button2_Click;
-            // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(367, 268);
+            label8.Location = new Point(447, 268);
             label8.Name = "label8";
             label8.Size = new Size(61, 20);
             label8.TabIndex = 21;
@@ -205,22 +195,31 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.icons8_Add_properties_120px_1;
-            pictureBox1.Location = new Point(367, 301);
+            pictureBox1.Location = new Point(447, 301);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(61, 43);
+            pictureBox1.Size = new Size(107, 80);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
+            // 
+            // lblCaminho
+            // 
+            lblCaminho.AutoSize = true;
+            lblCaminho.Location = new Point(447, 390);
+            lblCaminho.Name = "lblCaminho";
+            lblCaminho.Size = new Size(128, 20);
+            lblCaminho.TabIndex = 23;
+            lblCaminho.Text = "Nome do Arquivo";
             // 
             // Materiais
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 563);
+            Controls.Add(lblCaminho);
             Controls.Add(pictureBox1);
             Controls.Add(label8);
-            Controls.Add(btnEditar);
             Controls.Add(btnPublicar);
             Controls.Add(txtResumo);
             Controls.Add(label9);
@@ -263,8 +262,8 @@
         private ContextMenuStrip contextMenuStrip1;
         private RichTextBox txtResumo;
         private Button btnPublicar;
-        private Button btnEditar;
         private Label label8;
         private PictureBox pictureBox1;
+        private Label lblCaminho;
     }
 }

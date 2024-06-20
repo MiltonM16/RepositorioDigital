@@ -36,8 +36,8 @@ namespace RepositorioDigital.view
 
         private void btnPublicar_Click(object sender, EventArgs e)
         {
-           materialModel  md = new materialModel();
-           MaterialDao materialDao = new MaterialDao(); 
+            materialModel md = new materialModel();
+            MaterialDao materialDao = new MaterialDao();
             md.Titulo = txtTitulo.Text;
             md.Curso = txtCurso.Text;
             md.Resumo = txtResumo.Text;
@@ -47,6 +47,21 @@ namespace RepositorioDigital.view
             md.Departamento = txtDepartamento.Text;
 
             materialDao.InserirMaterial(md);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "PDF files (*.pdf)|*.pdf|Word files (*.doc;*.docx)|*.doc;*.docx";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtTipoMaterial.Text = openFileDialog.FileName;
+            }
+        }
+
+        private void txtTipoMaterial_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

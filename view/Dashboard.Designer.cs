@@ -28,33 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            pdfPanel = new Panel();
+            button1 = new Button();
             SuspendLayout();
             // 
-            // label1
+            // pdfPanel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(40, 20);
-            label1.TabIndex = 0;
-            label1.Text = "dash";
+            pdfPanel.Location = new Point(402, 46);
+            pdfPanel.Name = "pdfPanel";
+            pdfPanel.Size = new Size(343, 392);
+            pdfPanel.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(258, 286);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label1);
+            Controls.Add(button1);
+            Controls.Add(pdfPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Dashboard";
             Text = "Dashboard";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Panel pdfPanel;
+        private Button button1;
     }
 }

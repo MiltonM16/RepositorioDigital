@@ -48,6 +48,7 @@
             txtResumo = new RichTextBox();
             btnPublicar = new Button();
             btnEditar = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -155,6 +156,7 @@
             txtTipoMaterial.Name = "txtTipoMaterial";
             txtTipoMaterial.Size = new Size(211, 27);
             txtTipoMaterial.TabIndex = 14;
+            txtTipoMaterial.TextChanged += txtTipoMaterial_TextChanged;
             // 
             // label8
             // 
@@ -208,11 +210,22 @@
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += button2_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(65, 460);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 20;
+            button1.Text = "caregar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Materiais
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 480);
+            ClientSize = new Size(800, 549);
+            Controls.Add(button1);
             Controls.Add(btnEditar);
             Controls.Add(btnPublicar);
             Controls.Add(txtResumo);
@@ -260,5 +273,6 @@
         private RichTextBox txtResumo;
         private Button btnPublicar;
         private Button btnEditar;
+        private Button button1;
     }
 }

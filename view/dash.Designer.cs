@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             sidePanel = new Panel();
+            button2 = new Button();
             button1 = new Button();
             mainDash = new Button();
             userInfoPanel = new Panel();
             mainPanel = new Panel();
-            button2 = new Button();
             sidePanel.SuspendLayout();
             SuspendLayout();
             // 
             // sidePanel
             // 
-            sidePanel.BackColor = Color.FromArgb(64, 64, 64);
+            sidePanel.BackColor = Color.FromArgb(87, 83, 178);
             sidePanel.Controls.Add(button2);
             sidePanel.Controls.Add(button1);
             sidePanel.Controls.Add(mainDash);
@@ -50,12 +50,29 @@
             sidePanel.Size = new Size(250, 626);
             sidePanel.TabIndex = 0;
             // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Top;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(0, 252);
+            button2.Name = "button2";
+            button2.Size = new Size(250, 67);
+            button2.TabIndex = 3;
+            button2.Text = "Materiais";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // button1
             // 
             button1.Dock = DockStyle.Top;
-            button1.Location = new Point(0, 144);
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(0, 189);
             button1.Name = "button1";
-            button1.Size = new Size(250, 29);
+            button1.Size = new Size(250, 63);
             button1.TabIndex = 2;
             button1.Text = "Materiais";
             button1.UseVisualStyleBackColor = true;
@@ -63,18 +80,24 @@
             // 
             // mainDash
             // 
+            mainDash.AllowDrop = true;
+            mainDash.BackColor = Color.FromArgb(89, 85, 175);
             mainDash.Dock = DockStyle.Top;
+            mainDash.FlatStyle = FlatStyle.Popup;
+            mainDash.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            mainDash.ForeColor = Color.White;
+            mainDash.ImageAlign = ContentAlignment.MiddleLeft;
             mainDash.Location = new Point(0, 115);
             mainDash.Name = "mainDash";
-            mainDash.Size = new Size(250, 29);
+            mainDash.Size = new Size(250, 74);
             mainDash.TabIndex = 1;
-            mainDash.Text = "dashBoard";
-            mainDash.UseVisualStyleBackColor = true;
+            mainDash.Text = "Dashboard";
+            mainDash.UseVisualStyleBackColor = false;
             mainDash.Click += mainDash_Click;
             // 
             // userInfoPanel
             // 
-            userInfoPanel.BackColor = Color.Gray;
+            userInfoPanel.BackColor = Color.WhiteSmoke;
             userInfoPanel.Dock = DockStyle.Top;
             userInfoPanel.Location = new Point(0, 0);
             userInfoPanel.Name = "userInfoPanel";
@@ -84,22 +107,12 @@
             // 
             // mainPanel
             // 
+            mainPanel.BackColor = Color.FromArgb(236, 240, 239);
             mainPanel.Dock = DockStyle.Fill;
             mainPanel.Location = new Point(250, 0);
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(881, 626);
             mainPanel.TabIndex = 1;
-            // 
-            // button2
-            // 
-            button2.Dock = DockStyle.Top;
-            button2.Location = new Point(0, 173);
-            button2.Name = "button2";
-            button2.Size = new Size(250, 29);
-            button2.TabIndex = 3;
-            button2.Text = "Materiais";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // dash
             // 

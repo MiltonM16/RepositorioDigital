@@ -41,14 +41,14 @@
             label6 = new Label();
             txtCurso = new TextBox();
             label7 = new Label();
-            txtTipoMaterial = new TextBox();
-            label8 = new Label();
             label9 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
             txtResumo = new RichTextBox();
             btnPublicar = new Button();
             btnEditar = new Button();
-            button1 = new Button();
+            label8 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -120,7 +120,7 @@
             // 
             // txtDepartamento
             // 
-            txtDepartamento.Location = new Point(531, 199);
+            txtDepartamento.Location = new Point(250, 199);
             txtDepartamento.Name = "txtDepartamento";
             txtDepartamento.Size = new Size(211, 27);
             txtDepartamento.TabIndex = 10;
@@ -128,7 +128,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(531, 164);
+            label6.Location = new Point(250, 164);
             label6.Name = "label6";
             label6.Size = new Size(106, 20);
             label6.TabIndex = 9;
@@ -136,7 +136,7 @@
             // 
             // txtCurso
             // 
-            txtCurso.Location = new Point(531, 301);
+            txtCurso.Location = new Point(488, 199);
             txtCurso.Name = "txtCurso";
             txtCurso.Size = new Size(211, 27);
             txtCurso.TabIndex = 12;
@@ -144,28 +144,11 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(531, 266);
+            label7.Location = new Point(488, 164);
             label7.Name = "label7";
             label7.Size = new Size(46, 20);
             label7.TabIndex = 11;
             label7.Text = "Curso";
-            // 
-            // txtTipoMaterial
-            // 
-            txtTipoMaterial.Location = new Point(274, 199);
-            txtTipoMaterial.Name = "txtTipoMaterial";
-            txtTipoMaterial.Size = new Size(211, 27);
-            txtTipoMaterial.TabIndex = 14;
-            txtTipoMaterial.TextChanged += txtTipoMaterial_TextChanged;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(274, 164);
-            label8.Name = "label8";
-            label8.Size = new Size(94, 20);
-            label8.TabIndex = 13;
-            label8.Text = "TipoMaterial";
             // 
             // label9
             // 
@@ -186,13 +169,13 @@
             // 
             txtResumo.Location = new Point(12, 301);
             txtResumo.Name = "txtResumo";
-            txtResumo.Size = new Size(405, 95);
+            txtResumo.Size = new Size(271, 206);
             txtResumo.TabIndex = 17;
             txtResumo.Text = "";
             // 
             // btnPublicar
             // 
-            btnPublicar.Location = new Point(521, 367);
+            btnPublicar.Location = new Point(12, 522);
             btnPublicar.Name = "btnPublicar";
             btnPublicar.Size = new Size(94, 29);
             btnPublicar.TabIndex = 18;
@@ -202,7 +185,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(648, 367);
+            btnEditar.Location = new Point(129, 522);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 19;
@@ -210,28 +193,37 @@
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += button2_Click;
             // 
-            // button1
+            // label8
             // 
-            button1.Location = new Point(65, 460);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 20;
-            button1.Text = "caregar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            label8.AutoSize = true;
+            label8.Location = new Point(367, 268);
+            label8.Name = "label8";
+            label8.Size = new Size(61, 20);
+            label8.TabIndex = 21;
+            label8.Text = "Arquivo";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.icons8_Add_properties_120px_1;
+            pictureBox1.Location = new Point(367, 301);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(61, 43);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 22;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // Materiais
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 549);
-            Controls.Add(button1);
+            ClientSize = new Size(800, 563);
+            Controls.Add(pictureBox1);
+            Controls.Add(label8);
             Controls.Add(btnEditar);
             Controls.Add(btnPublicar);
             Controls.Add(txtResumo);
             Controls.Add(label9);
-            Controls.Add(txtTipoMaterial);
-            Controls.Add(label8);
             Controls.Add(txtCurso);
             Controls.Add(label7);
             Controls.Add(txtDepartamento);
@@ -248,6 +240,7 @@
             Name = "Materiais";
             Text = "Materiais";
             Load += Materiais_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -266,13 +259,12 @@
         private Label label6;
         private TextBox txtCurso;
         private Label label7;
-        private TextBox txtTipoMaterial;
-        private Label label8;
         private Label label9;
         private ContextMenuStrip contextMenuStrip1;
         private RichTextBox txtResumo;
         private Button btnPublicar;
         private Button btnEditar;
-        private Button button1;
+        private Label label8;
+        private PictureBox pictureBox1;
     }
 }

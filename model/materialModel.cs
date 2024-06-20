@@ -17,5 +17,10 @@ namespace RepositorioDigital.model
         public string Curso { get; set; }
         public string Departamento { get; set; }
         public string Supervisor { get; set; }
+        public byte[] filedata { get; set; }
+
+        public string filename { get; set; }
+
+        public string filetype { get; set; }
     }
 }

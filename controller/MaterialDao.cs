@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RepositorioDigital.controller
 {
@@ -16,8 +17,8 @@ namespace RepositorioDigital.controller
             {
                 using (var connection = controller.ConexaoDB.ObterConexao())
                 {
-                    string query = "INSERT INTO Material (Titulo, Autor, Resumo, DataPublicacao, TipoMaterial, Curso, Departamento, Supervisor) " +
-                                   "VALUES (@Titulo, @Autor, @Resumo, @DataPublicacao, @TipoMaterial, @Curso, @Departamento, @Supervisor)";
+                    string query = "INSERT INTO Material (Titulo, Autor, Resumo, DataPublicacao, TipoMaterial, Curso, Departamento, Supervisor, filedata, filename, filetype) " +
+                                   "VALUES (@Titulo, @Autor, @Resumo, now(), @TipoMaterial, @Curso, @Departamento, @Supervisor, @filedata, @filename, @filetype)";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     command.Parameters.AddWithValue("@Titulo", material.Titulo);
@@ -28,6 +29,9 @@ namespace RepositorioDigital.controller
                     command.Parameters.AddWithValue("@Curso", material.Curso);
                     command.Parameters.AddWithValue("@Departamento", material.Departamento);
                     command.Parameters.AddWithValue("@Supervisor", material.Supervisor);
+                    command.Parameters.AddWithValue("@filedata", material.filedata);
+                    command.Parameters.AddWithValue("@filename", material.filename);
+                    command.Parameters.AddWithValue("@filetype", material.filetype);
 
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -37,7 +41,7 @@ namespace RepositorioDigital.controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algum erro: " + ex);
+                MessageBox.Show("Algum erro: " + ex.Message);
             }
         }
 
@@ -48,7 +52,8 @@ namespace RepositorioDigital.controller
                 using (var connection = controller.ConexaoDB.ObterConexao())
                 {
                     string query = "UPDATE Material SET Titulo = @Titulo, Autor = @Autor, Resumo = @Resumo, DataPublicacao = @DataPublicacao, " +
-                                   "TipoMaterial = @TipoMaterial, Curso = @Curso, Departamento = @Departamento, Supervisor = @Supervisor WHERE Id = @Id";
+                                   "TipoMaterial = @TipoMaterial, Curso = @Curso, Departamento = @Departamento, Supervisor = @Supervisor, " +
+                                   "filedata = @filedata, filename = @filename, filetype = @filetype WHERE Id = @Id";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     command.Parameters.AddWithValue("@Titulo", material.Titulo);
@@ -59,6 +64,9 @@ namespace RepositorioDigital.controller
                     command.Parameters.AddWithValue("@Curso", material.Curso);
                     command.Parameters.AddWithValue("@Departamento", material.Departamento);
                     command.Parameters.AddWithValue("@Supervisor", material.Supervisor);
+                    command.Parameters.AddWithValue("@filedata", material.filedata);
+                    command.Parameters.AddWithValue("@filename", material.filename);
+                    command.Parameters.AddWithValue("@filetype", material.filetype);
                     command.Parameters.AddWithValue("@Id", material.id);
 
                     connection.Open();
@@ -69,7 +77,7 @@ namespace RepositorioDigital.controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algum erro: " + ex);
+                MessageBox.Show("Algum erro: " + ex.Message);
             }
         }
 
@@ -91,10 +99,8 @@ namespace RepositorioDigital.controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algum erro: " + ex);
+                MessageBox.Show("Algum erro: " + ex.Message);
             }
         }
-
-
     }
 }

@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Aspose.PDF" Version="24.6.0" />
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
+    <PackageReference Include="GemBox.Document" Version="35.0.1784" />
     <PackageReference Include="MySql.Data" Version="8.4.0" />
     <PackageReference Include="MySqlBackup.NET" Version="2.3.8" />
     <PackageReference Include="PdfiumViewer" Version="2.13.0" />

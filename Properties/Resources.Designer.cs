@@ -69,5 +69,15 @@ namespace RepositorioDigital.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_Add_properties_120px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Add_properties_120px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

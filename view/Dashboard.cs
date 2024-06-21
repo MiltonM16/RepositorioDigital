@@ -7,7 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iText.Kernel.Pdf;
 using PdfiumViewer;
+using Xceed.Words.NET;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+
 
 namespace RepositorioDigital.view
 {
@@ -29,8 +35,8 @@ namespace RepositorioDigital.view
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "PDF Files|*.pdf",
-                Title = "Selecione um arquivo PDF"
+                Filter = "Document Files|*.pdf;*.doc;*.docx",
+                Title = "Selecione um arquivo PDF ou DOC"
             };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -39,9 +45,34 @@ namespace RepositorioDigital.view
 
                 // Carrega o documento PDF no PdfViewer
                 pdfViewer.Document?.Dispose();  // Limpa o documento anterior, se houver
-                pdfViewer.Document = PdfDocument.Load(caminhoDoPDF);
+                pdfViewer.Document = PdfiumViewer.PdfDocument.Load(caminhoDoPDF);
             }
 
+        }
+
+        public void ConvertDocxToPdf(string inputFilePath, string outputFilePath)
+        {
+            // Carregar o documento DOCX
+            using (DocX document = DocX.Load(inputFilePath))
+            {
+                // Criar um documento PDF
+                using (PdfWriter writer = new PdfWriter(outputFilePath))
+                {
+                    using (iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(writer))
+                    {
+                        Document pdfDoc = new Document(pdf);
+
+                        // Iterar sobre os parágrafos no documento DOCX
+                        foreach (var paragraph in document.Paragraphs)
+                        {
+                            // Adicionar cada parágrafo ao documento PDF
+                            pdfDoc.Add(new Paragraph(paragraph.Text));
+                        }
+
+                        pdfDoc.Close();
+                    }
+                }
+            }
         }
     }
 }

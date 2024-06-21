@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using RepositorioDigital.controller;
+using RepositorioDigital.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,23 @@ namespace RepositorioDigital.view
         {
             InitializeComponent();
             listarDados();
+
+
+            DataGridViewButtonColumn visualizarButtonColumn = new DataGridViewButtonColumn();
+            visualizarButtonColumn.Name = "visualizar";
+            visualizarButtonColumn.HeaderText = "Visualizar";
+            visualizarButtonColumn.Text = "Visualizar";
+            visualizarButtonColumn.UseColumnTextForButtonValue = true;
+            this.dataTable.Columns.Add(visualizarButtonColumn);
+
+            DataGridViewButtonColumn baixarButtonColumn = new DataGridViewButtonColumn();
+            baixarButtonColumn.Name = "baixar";
+            baixarButtonColumn.HeaderText = "Baixar";
+            baixarButtonColumn.Text = "Baixar";
+            baixarButtonColumn.UseColumnTextForButtonValue = true;
+            this.dataTable.Columns.Add(baixarButtonColumn);
+
+
 
         }
 
@@ -103,6 +122,101 @@ namespace RepositorioDigital.view
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void VisualizarMaterial(int id)
+        {
+            MaterialDao materialDao = new MaterialDao();
+            materialModel material = materialDao.ObterMaterialPorId(id);
+
+            if (material != null && material.filedata != null)
+            {
+                string tempFilePath = Path.Combine(Path.GetTempPath(), material.filename);
+                File.WriteAllBytes(tempFilePath, material.filedata);
+
+                // Abrir o arquivo com o programa padrão do sistema
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = tempFilePath,
+                    UseShellExecute = true
+                });
+            }
+            else
+            {
+                MessageBox.Show("Arquivo não encontrado.");
+            }
+        }
+
+        public void Filtrar(string filtro)
+        {
+            try
+            {
+                using (var connection = controller.ConexaoDB.ObterConexao())
+                {
+                    string query = "SELECT * FROM material WHERE titulo LIKE @filtro OR autor LIKE @filtro OR departamento LIKE @filtro OR curso LIKE @filtro OR filetype LIKE @filtro OR Supervisor LIKE @filtro";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+
+                    // Cria um adaptador de dados para preencher um DataSet
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
+                    // Cria um DataSet para armazenar os dados
+                    DataSet dataSet = new DataSet();
+
+                    // Abre a conexão
+                    connection.Open();
+
+                    // Preenche o DataSet com os dados da tabela de usuários
+                    adapter.Fill(dataSet, "defesas");
+
+                    // Fecha a conexão
+                    connection.Close();
+
+                    // Define o DataSource do DataGridView como o DataTable do DataSet
+                    dataTable.DataSource = dataSet.Tables["defesas"];
+
+                    // Esconde colunas desnecessárias
+                    dataTable.Columns["id"].Visible = false;
+                    dataTable.Columns["filedata"].Visible = false;
+                    dataTable.Columns["filetype"].Visible = false;
+                    dataTable.Columns["TipoMaterial"].Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algum erro: " + ex.Message);
+            }
+        }
+
+
+        private void BaixarMaterial(int id)
+        {
+            MaterialDao materialDao = new MaterialDao();
+            materialModel material = materialDao.ObterMaterialPorId(id);
+
+            if (material != null && material.filedata != null)
+            {
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.FileName = material.filename;
+                    saveFileDialog.Filter = "Todos os arquivos (*.*)|*.*";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        File.WriteAllBytes(saveFileDialog.FileName, material.filedata);
+                        MessageBox.Show("Arquivo baixado com sucesso.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Arquivo não encontrado.");
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar(textBox1.Text);
         }
     }
 }

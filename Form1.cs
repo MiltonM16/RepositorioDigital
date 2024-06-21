@@ -1,6 +1,7 @@
 
 using RepositorioDigital.controller;
 using RepositorioDigital.model;
+using RepositorioDigital.view;
 
 namespace RepositorioDigital
 {
@@ -18,15 +19,25 @@ namespace RepositorioDigital
 
         private void btnAutenticar_Click(object sender, EventArgs e)
         {
-            UsersDao us = new UsersDao();
-            userModel um = new userModel();
-            um.nome = txtNome.Text;
-            um.senha = txtsenha.Text;
-            um.permissao = txtPemissao.Text;
-            um.id = 1;
+            string nome = txtNome.Text;
+            string senha = txtsenha.Text;
 
-            us.InserirUsuario(um);
-           // us.AtualizarUsuario( um );  
+            UsersDao usuarioDao = new UsersDao();
+            userModel usuario = usuarioDao.VerificarCredenciais(nome, senha);
+
+            if (usuario != null)
+            {
+                MessageBox.Show($"Login bem-sucedido! Bem-vindo, {usuario.Nome}.");
+
+                // Aqui você pode abrir o formulário principal do seu sistema e passar os dados do usuário
+                var mainForm = new dash(usuario); // Passa o usuário para o formulário principal
+                mainForm.Show();
+                this.Hide(); // Opcional: Esconder o formulário de login
+            }
+            else
+            {
+                MessageBox.Show("Nome de usuário ou senha incorretos.");
+            }
         }
     }
 }

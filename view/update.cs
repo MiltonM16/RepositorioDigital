@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 
 namespace RepositorioDigital.view
 {
@@ -20,11 +21,39 @@ namespace RepositorioDigital.view
         {
             InitializeComponent();
 
-             idupdate = id;
+            idupdate = id;
 
-            MessageBox.Show(id.ToString());
+            // MessageBox.Show(id.ToString());
+            GetData(id);
         }
 
+        private void GetData(int id)
+        {
+            MaterialDao materialDao = new MaterialDao();
+            materialModel material = materialDao.ObterMaterialPorId(id);
+
+            if (material != null)
+            {
+                txtTitulo.Text = material.Titulo;
+                txtCurso.Text = material.Curso;
+                txtResumo.Text = material.Resumo;
+                txtSupervisor.Text = material.Supervisor;
+                txtAutor.Text = material.Autor;
+                txtDepartamento.Text = material.Departamento;
+                filePath = material.filename;
+                lblCaminho.Text = material.filename;
+
+                if (material.filename != null)
+                {
+                    filePath = material.filename; // Armazena o nome do arquivo, você pode ajustar conforme necessário
+                                                  // Se você precisar exibir o arquivo em algum controle específico, pode adicionar essa lógica aqui
+                }
+            }
+            else
+            {
+                MessageBox.Show("Material não encontrado.");
+            }
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -45,16 +74,29 @@ namespace RepositorioDigital.view
             md.Curso = txtCurso.Text;
             md.Resumo = txtResumo.Text;
             md.Supervisor = txtSupervisor.Text;
-
             md.Autor = txtAutor.Text;
             md.Departamento = txtDepartamento.Text;
-            md.filedata = File.ReadAllBytes(filePath);
-            md.filename = Path.GetFileName(filePath);
-            md.filetype = Path.GetExtension(filePath);
+
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                md.filedata = File.ReadAllBytes(filePath);
+                md.filename = Path.GetFileName(filePath);
+                md.filetype = Path.GetExtension(filePath);
+            }
             md.id = idupdate;
 
             materialDao.AtualizarMaterial(md);
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

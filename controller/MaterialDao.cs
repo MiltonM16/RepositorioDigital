@@ -102,5 +102,50 @@ namespace RepositorioDigital.controller
                 MessageBox.Show("Algum erro: " + ex.Message);
             }
         }
+
+      
+            public materialModel ObterMaterialPorId(int id)
+            {
+                materialModel material = null;
+
+                try
+                {
+                    using (var connection = ConexaoDB.ObterConexao())
+                    {
+                        string query = "SELECT * FROM material WHERE id = @id";
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@id", id);
+
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                material = new materialModel
+                                {
+                                    id = reader.GetInt32("id"),
+                                    Titulo = reader.GetString("titulo"),
+                                    Curso = reader.GetString("curso"),
+                                    Resumo = reader.GetString("resumo"),
+                                    Supervisor = reader.GetString("supervisor"),
+                                    Autor = reader.GetString("autor"),
+                                    Departamento = reader.GetString("departamento"),
+                                    filedata = reader.IsDBNull(reader.GetOrdinal("filedata")) ? null : (byte[])reader["filedata"],
+                                    filename = reader.IsDBNull(reader.GetOrdinal("filename")) ? null : reader.GetString("filename"),
+                                    filetype = reader.IsDBNull(reader.GetOrdinal("filetype")) ? null : reader.GetString("filetype")
+                                };
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao obter material: " + ex.Message);
+                }
+
+                return material;
+            }
+        }
+
     }
-}
+

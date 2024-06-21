@@ -59,6 +59,7 @@
             button2.TabIndex = 45;
             button2.Text = "X";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -68,6 +69,7 @@
             button1.TabIndex = 44;
             button1.Text = "Cancelar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // lblCaminho
             // 

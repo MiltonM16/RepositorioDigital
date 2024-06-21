@@ -30,7 +30,8 @@
         {
             dataTable = new DataGridView();
             button1 = new Button();
-            button2 = new Button();
+            textBox1 = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataTable).BeginInit();
             SuspendLayout();
             // 
@@ -49,31 +50,40 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(553, 79);
+            button1.Location = new Point(703, 79);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 1;
-            button1.Text = "Inserir";
+            button1.Text = "adcinar novo";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
+            // textBox1
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.Location = new Point(672, 79);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 2;
-            button2.Text = "Editar";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox1.Location = new Point(82, 79);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(212, 27);
+            textBox1.TabIndex = 2;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Location = new Point(10, 83);
+            label1.Name = "label1";
+            label1.Size = new Size(43, 20);
+            label1.TabIndex = 3;
+            label1.Text = "Filtro";
             // 
             // GestaoMaterial
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(841, 483);
-            Controls.Add(button2);
+            Controls.Add(label1);
+            Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(dataTable);
             FormBorderStyle = FormBorderStyle.None;
@@ -82,12 +92,14 @@
             Load += GestaoMaterial_Load;
             ((System.ComponentModel.ISupportInitialize)dataTable).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataTable;
         private Button button1;
-        private Button button2;
+        private TextBox textBox1;
+        private Label label1;
     }
 }

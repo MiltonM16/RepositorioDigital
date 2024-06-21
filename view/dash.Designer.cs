@@ -60,7 +60,7 @@
             button2.Name = "button2";
             button2.Size = new Size(250, 67);
             button2.TabIndex = 3;
-            button2.Text = "Materiais";
+            button2.Text = "VisuaIizar";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -113,6 +113,7 @@
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(881, 626);
             mainPanel.TabIndex = 1;
+            mainPanel.Paint += mainPanel_Paint;
             // 
             // dash
             // 

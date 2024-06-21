@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepositorioDigital.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace RepositorioDigital.view
 {
     public partial class dash : Form
     {
+        private userModel _usuario;
         public dash()
         {
             InitializeComponent();
@@ -53,7 +55,12 @@ namespace RepositorioDigital.view
 
         private void button2_Click(object sender, EventArgs e)
         {
-        
+            AbrirTela(new GestaoMaterial());
+        }
+
+        private void mainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

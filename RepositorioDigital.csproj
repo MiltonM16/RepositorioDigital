@@ -11,9 +11,13 @@
   <ItemGroup>
     <PackageReference Include="Aspose.PDF" Version="24.6.0" />
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
+    <PackageReference Include="DocX" Version="3.0.0" />
     <PackageReference Include="GemBox.Document" Version="35.0.1784" />
+    <PackageReference Include="itext7" Version="8.0.4" />
+    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1004" />
     <PackageReference Include="MySql.Data" Version="8.4.0" />
     <PackageReference Include="MySqlBackup.NET" Version="2.3.8" />
+    <PackageReference Include="Pdfbox" Version="1.1.1" />
     <PackageReference Include="PdfiumViewer" Version="2.13.0" />
     <PackageReference Include="PdfiumViewer.Native.x86_64.v8-xfa" Version="2018.4.8.256" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.6" />

@@ -200,7 +200,7 @@ namespace RepositorioDigital.view
                 MessageBox.Show("Algum erro: " + ex.Message);
             }
         }
-        
+
 
 
 
@@ -213,8 +213,17 @@ namespace RepositorioDigital.view
             {
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
-                    saveFileDialog.FileName = material.filename;
-                    saveFileDialog.Filter = "Todos os arquivos (*.*)|*.*";
+                    // Verifica se o nome do arquivo já contém a extensão, caso contrário, adiciona a extensão do filetype
+                    string filename = material.filename;
+                    string extension = Path.GetExtension(filename);
+
+                    if (string.IsNullOrEmpty(extension) && !string.IsNullOrEmpty(material.filetype))
+                    {
+                        filename += "." + material.filetype;
+                    }
+
+                    saveFileDialog.FileName = filename;
+                    saveFileDialog.Filter = $"{material.filetype} files (*.{material.filetype})|*.{material.filetype}|Todos os arquivos (*.*)|*.*";
 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
@@ -228,6 +237,7 @@ namespace RepositorioDigital.view
                 MessageBox.Show("Arquivo não encontrado.");
             }
         }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

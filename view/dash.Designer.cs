@@ -34,6 +34,7 @@
             mainDash = new Button();
             userInfoPanel = new Panel();
             mainPanel = new Panel();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             sidePanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -137,5 +138,6 @@
         private Button mainDash;
         private Button button1;
         private Button button2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

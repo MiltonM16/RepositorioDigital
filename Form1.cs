@@ -23,21 +23,8 @@ namespace RepositorioDigital
             string senha = txtsenha.Text;
 
             UsersDao usuarioDao = new UsersDao();
-            userModel usuario = usuarioDao.VerificarCredenciais(nome, senha);
+         
 
-            if (usuario != null)
-            {
-                MessageBox.Show($"Login bem-sucedido! Bem-vindo, {usuario.Nome}.");
-
-                // Aqui você pode abrir o formulário principal do seu sistema e passar os dados do usuário
-                var mainForm = new dash(usuario); // Passa o usuário para o formulário principal
-                mainForm.Show();
-                this.Hide(); // Opcional: Esconder o formulário de login
-            }
-            else
-            {
-                MessageBox.Show("Nome de usuário ou senha incorretos.");
-            }
         }
     }
 }

@@ -7,31 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using iText.Kernel.Pdf;
-using PdfiumViewer;
-using Xceed.Words.NET;
-using iText.Layout;
-using iText.Layout.Element;
-using iText.Layout.Properties;
-
+using Spire.Doc;
+using System.IO;
+using System.Drawing.Imaging;
+using Microsoft.Web.WebView2.WinForms;
+using sun.swing;
+using System.Diagnostics;
 
 namespace RepositorioDigital.view
 {
     public partial class Dashboard : Form
     {
-        private PdfViewer pdfViewer;
+        private WebView2 webView;
         public Dashboard()
         {
             InitializeComponent();
-            // Inicializa o PdfViewer
-            pdfViewer = new PdfViewer();
-            pdfViewer.Dock = DockStyle.Fill;
 
-            // Adiciona o PdfViewer ao Panel
-            pdfPanel.Controls.Add(pdfViewer);
+          
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+
+        private async void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -41,38 +38,32 @@ namespace RepositorioDigital.view
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string caminhoDoPDF = openFileDialog.FileName;
+                string caminhoDoDocumento = openFileDialog.FileName;
 
-                // Carrega o documento PDF no PdfViewer
-                pdfViewer.Document?.Dispose();  // Limpa o documento anterior, se houver
-                pdfViewer.Document = PdfiumViewer.PdfDocument.Load(caminhoDoPDF);
+                // Renderizar o documento no WebView2
+                await RenderizarDocumentoAsync(caminhoDoDocumento);
+
+
             }
+
 
         }
 
-        public void ConvertDocxToPdf(string inputFilePath, string outputFilePath)
+            public async Task RenderizarDocumentoAsync(string caminhoDoDocumento)
         {
-            // Carregar o documento DOCX
-            using (DocX document = DocX.Load(inputFilePath))
+            try
             {
-                // Criar um documento PDF
-                using (PdfWriter writer = new PdfWriter(outputFilePath))
-                {
-                    using (iText.Kernel.Pdf.PdfDocument pdf = new iText.Kernel.Pdf.PdfDocument(writer))
-                    {
-                        Document pdfDoc = new Document(pdf);
-
-                        // Iterar sobre os parágrafos no documento DOCX
-                        foreach (var paragraph in document.Paragraphs)
-                        {
-                            // Adicionar cada parágrafo ao documento PDF
-                            pdfDoc.Add(new Paragraph(paragraph.Text));
-                        }
-
-                        pdfDoc.Close();
-                    }
-                }
+                // Inicia o processo para abrir o documento com o aplicativo padrão
+                Process.Start(new ProcessStartInfo(caminhoDoDocumento) { UseShellExecute = true });
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao abrir o documento: " + ex.Message);
+            }
+
+
+
         }
+
     }
 }

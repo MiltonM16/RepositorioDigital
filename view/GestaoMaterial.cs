@@ -102,19 +102,32 @@ namespace RepositorioDigital.view
                 // Obtém a linha selecionada
                 DataGridViewRow row = dataTable.Rows[e.RowIndex];
 
-                // Extrai os dados da linha
+
                 var id = row.Cells["id"].Value.ToString();
-                // var titulo = row.Cells["titulo"].Value.ToString();
-                // var autor = row.Cells["autor"].Value.ToString();
-                //  var assunto = row.Cells["assunto"].Value.ToString();
-                //  var palavrasChave = row.Cells["palavras_chave"].Value.ToString();
 
-                // Cria e exibe o formulário Material com os dados da linha
-                //Material popup = new Material(id, titulo, autor, assunto, palavrasChave);
-                //popup.ShowDialog();
+                // Verifica se a coluna clicada é uma DataGridViewButtonColumn e qual botão foi clicado
+                if (dataTable.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                    (dataTable.Columns[e.ColumnIndex].Name.Equals("visualizar") ||
+                     dataTable.Columns[e.ColumnIndex].Name.Equals("baixar")))
+                {
+                    int ids = Convert.ToInt32(row.Cells["id"].Value);
 
-                update pop = new update(Convert.ToInt16(id));
-                pop.ShowDialog();
+                    // Verifica se o botão "Visualizar" foi clicado
+                    if (dataTable.Columns[e.ColumnIndex].Name.Equals("visualizar"))
+                    {
+                        VisualizarMaterial(ids);
+                    }
+                    // Verifica se o botão "Baixar" foi clicado
+                    else if (dataTable.Columns[e.ColumnIndex].Name.Equals("baixar"))
+                    {
+                        BaixarMaterial(ids);
+                    }
+                }
+                else {
+                    update pop = new update(Convert.ToInt16(id));
+                    pop.ShowDialog();
+                }
+
 
             }
         }
@@ -187,6 +200,8 @@ namespace RepositorioDigital.view
                 MessageBox.Show("Algum erro: " + ex.Message);
             }
         }
+        
+
 
 
         private void BaixarMaterial(int id)

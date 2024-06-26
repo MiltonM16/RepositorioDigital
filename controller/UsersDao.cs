@@ -130,46 +130,7 @@ namespace RepositorioDigital.controller
             }
         }
 
-        public UserModel VerificarCredenciais(string nome, string senha)
-        {
-            try
-            {
-                using (var connection = controller.ConexaoDB.ObterConexao())
-                {
-                    string query = "SELECT * FROM user WHERE nome = @Nome AND senha = @Senha";
-                    MySqlCommand command = new MySqlCommand(query, connection);
-
-                    command.Parameters.AddWithValue("@Nome", nome);
-                    command.Parameters.AddWithValue("@Senha", senha);
-
-                    connection.Open();
-                    MySqlDataReader reader = command.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        userModel usuario = new userModel
-                        {
-                            id = Convert.ToInt32(reader["id"]),
-                            nome = reader["nome"].ToString(),
-                            senha = reader["senha"].ToString(),
-                            permissao = reader["permissao"].ToString()
-                        };
-
-                        return usuario;
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Algum erro: " + ex.Message);
-                return null;
-            }
-        }
-
+      
 
     }
 }

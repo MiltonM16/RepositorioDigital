@@ -66,9 +66,10 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Poppins", 9F, FontStyle.Bold);
             label2.Location = new Point(12, 64);
             label2.Name = "label2";
-            label2.Size = new Size(47, 20);
+            label2.Size = new Size(55, 26);
             label2.TabIndex = 1;
             label2.Text = "Titulo";
             // 
@@ -89,9 +90,10 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Poppins", 9F, FontStyle.Bold);
             label3.Location = new Point(382, 64);
             label3.Name = "label3";
-            label3.Size = new Size(46, 20);
+            label3.Size = new Size(55, 26);
             label3.TabIndex = 3;
             label3.Text = "Autor";
             label3.Click += label3_Click;
@@ -106,9 +108,10 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Poppins", 9F, FontStyle.Bold);
             label4.Location = new Point(12, 164);
             label4.Name = "label4";
-            label4.Size = new Size(78, 20);
+            label4.Size = new Size(93, 26);
             label4.TabIndex = 5;
             label4.Text = "Supervisor";
             // 
@@ -130,9 +133,10 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Poppins", 9F, FontStyle.Bold);
             label6.Location = new Point(250, 164);
             label6.Name = "label6";
-            label6.Size = new Size(106, 20);
+            label6.Size = new Size(125, 26);
             label6.TabIndex = 9;
             label6.Text = "Departamento";
             // 
@@ -146,18 +150,20 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Poppins", 9F, FontStyle.Bold);
             label7.Location = new Point(488, 164);
             label7.Name = "label7";
-            label7.Size = new Size(46, 20);
+            label7.Size = new Size(57, 26);
             label7.TabIndex = 11;
             label7.Text = "Curso";
             // 
             // label9
             // 
             label9.AutoSize = true;
+            label9.Font = new Font("Poppins", 9F, FontStyle.Bold);
             label9.Location = new Point(12, 268);
             label9.Name = "label9";
-            label9.Size = new Size(62, 20);
+            label9.Size = new Size(75, 26);
             label9.TabIndex = 15;
             label9.Text = "Resumo";
             // 
@@ -177,20 +183,25 @@
             // 
             // btnPublicar
             // 
-            btnPublicar.Location = new Point(447, 455);
+            btnPublicar.BackColor = Color.FromArgb(0, 167, 98);
+            btnPublicar.FlatStyle = FlatStyle.Flat;
+            btnPublicar.Font = new Font("Poppins SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPublicar.ForeColor = Color.White;
+            btnPublicar.Location = new Point(447, 448);
             btnPublicar.Name = "btnPublicar";
-            btnPublicar.Size = new Size(94, 29);
+            btnPublicar.Size = new Size(94, 36);
             btnPublicar.TabIndex = 18;
             btnPublicar.Text = "Salvar";
-            btnPublicar.UseVisualStyleBackColor = true;
+            btnPublicar.UseVisualStyleBackColor = false;
             btnPublicar.Click += btnPublicar_Click;
             // 
             // label8
             // 
             label8.AutoSize = true;
+            label8.Font = new Font("Poppins", 9F, FontStyle.Bold);
             label8.Location = new Point(447, 268);
             label8.Name = "label8";
-            label8.Size = new Size(61, 20);
+            label8.Size = new Size(72, 26);
             label8.TabIndex = 21;
             label8.Text = "Arquivo";
             // 
@@ -216,12 +227,16 @@
             // 
             // button1
             // 
-            button1.Location = new Point(571, 455);
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Poppins SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(547, 448);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(94, 36);
             button1.TabIndex = 24;
             button1.Text = "Cancelar";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
             // button2

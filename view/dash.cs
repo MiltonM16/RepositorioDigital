@@ -17,6 +17,7 @@ namespace RepositorioDigital.view
         public dash()
         {
             InitializeComponent();
+            AbrirTela(new Dashboard());
         }
 
         public void AbrirTela(Form tela)

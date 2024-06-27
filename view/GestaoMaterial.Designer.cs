@@ -50,20 +50,24 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(703, 79);
+            button1.BackColor = Color.FromArgb(89, 85, 179);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Poppins", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(632, 67);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(150, 36);
             button1.TabIndex = 1;
-            button1.Text = "adcinar novo";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "Adcionar novo";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            textBox1.Location = new Point(82, 79);
+            textBox1.Location = new Point(70, 70);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(212, 27);
+            textBox1.Size = new Size(232, 27);
             textBox1.TabIndex = 2;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -71,9 +75,10 @@
             // 
             label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Location = new Point(10, 83);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(18, 74);
             label1.Name = "label1";
-            label1.Size = new Size(43, 20);
+            label1.Size = new Size(46, 20);
             label1.TabIndex = 3;
             label1.Text = "Filtro";
             // 

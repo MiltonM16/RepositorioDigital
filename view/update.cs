@@ -82,10 +82,11 @@ namespace RepositorioDigital.view
                 md.filedata = File.ReadAllBytes(filePath);
                 md.filename = Path.GetFileName(filePath);
                 md.filetype = Path.GetExtension(filePath);
-            }
-            md.id = idupdate;
+                md.id = idupdate;
 
-            materialDao.AtualizarMaterial(md);
+                materialDao.AtualizarMaterial(md);
+            }
+         
 
         }
 

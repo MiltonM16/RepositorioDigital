@@ -63,6 +63,16 @@ namespace RepositorioDigital.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap book_shelf_200px {
+            get {
+                object obj = ResourceManager.GetObject("book_shelf_200px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dashboard_layout_10px {
             get {
                 object obj = ResourceManager.GetObject("dashboard_layout_10px", resourceCulture);
